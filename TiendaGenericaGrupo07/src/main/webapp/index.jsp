@@ -3,24 +3,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Inicio de Sesión</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="Estilos css/Estilos5.css">
+	<title>Validación Usuario</title>
 </head>
 <body>
-	<form action="./ServletLogin" method="post">
-		<table>
-			<tr>
-				<td>Usuario</td>
-				<td><input type="text" name="nombre" /></td>
-			</tr>
-			<tr>
-				<td>Contraseña</td>
-				<td><input type="password" name="password" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="Iniciar sesión"/></td>
-			</tr>
-		</table>
+	
+		<header>
+        <h1 class="titulo"> Tienda Generica</h1>
+    </header>
+
+	<section class="main">
+        <br />
+        <h2>Bienvenido a Tienda Generica Grupo 7</h2>
+            
+        <form action="./ServletLogin" method="get">
+            <div>
+
+                <label>Usuario:</label>
+                <input type="text" placeholder="Escriba el usuario" name="nombre" id="usuario" class="usuario">
+                <br />         
+                <label>Contraseña:</label>
+                <input type="password" placeholder="Escriba la contraseña" name="password" id="contraseña" class="contraseña">
+                <br />      
+                <button name="Aceptar" class="acciones">Aceptar</button>
+                
+            </div>
+            
+        
+    </form>
+    </section>
 		<div>
 			<p>
 				<%

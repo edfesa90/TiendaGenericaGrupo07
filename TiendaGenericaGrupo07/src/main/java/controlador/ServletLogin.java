@@ -57,7 +57,7 @@ public class ServletLogin extends HttpServlet {
 			}
 			
 		}else {
-			if (nombre.equals("dmininicial") && password.equals("dmin123456")) {
+			if (nombre.equals("admininicial") && password.equals("admin123456")) {
 				response.sendRedirect("usuarioInicial.jsp");
 			}else {
 				request.setAttribute("mensaje", "Error nombre de usuario y/o clave POR DEFECTO");
