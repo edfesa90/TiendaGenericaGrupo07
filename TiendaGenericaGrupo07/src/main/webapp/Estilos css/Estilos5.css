@@ -123,3 +123,7 @@ div {
     border-radius: 10px;
     padding: 3px;
 }
+
+p {
+	position: relative;	
+}

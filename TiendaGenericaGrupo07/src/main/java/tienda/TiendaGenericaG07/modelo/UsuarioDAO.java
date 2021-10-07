@@ -1,17 +1,16 @@
-package packageDAO;
-
+package tienda.TiendaGenericaG07.modelo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
 
-import modelo.Modelo;
+import tienda.TiendaGenericaG07.controlador.Conexion;
+
 
 public class UsuarioDAO {
 	
-	public boolean insert (Modelo mod) {
+	public boolean insert (Usuario mod) {
 		boolean flag = false;
 		Conexion con = new Conexion();
 		String sql = "INSERT INTO usuarios (cedula_usuario, email_usuario, nombre_usuario, password, usuario) VALUES (?,?,?,?,?)";
@@ -26,9 +25,6 @@ public class UsuarioDAO {
 			ps.setString(5, mod.getUsuario());
 			if (ps.executeUpdate() == 1) {
 				flag = true;
-				System.out.println("---------------------------------------------");
-				System.out.println("'" + mod.getNombre_usuario().toUpperCase() + "' REGISTRADO CORRECTAMENTE ");
-				System.out.println("---------------------------------------------");
 			}else {
 				System.out.println("Error al registrar usuario");
 			}			
@@ -43,8 +39,8 @@ public class UsuarioDAO {
 	}
 	
 	
-	public List<Modelo>selectAll(){
-		List<Modelo> lista = new LinkedList<Modelo>();
+	public ArrayList<Usuario> selectAll(){
+		ArrayList<Usuario> lista = new ArrayList<Usuario>();
 		String sql = "SELECT * FROM tiendagenerica07.usuarios;";
 		
 		try {
@@ -52,29 +48,27 @@ public class UsuarioDAO {
 			PreparedStatement ps = con.getConexion().prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			
-			Modelo tablaUsuarios;
+			Usuario tablaUsuarios;
 			while (rs.next()) {
-				tablaUsuarios = new Modelo(rs.getInt("cedula_usuario"),rs.getString("email_usuario"), rs.getString("nombre_usuario"), rs.getString("password"), rs.getString("usuario"));
+				tablaUsuarios = new Usuario(rs.getInt("cedula_usuario"),rs.getString("email_usuario"), rs.getString("nombre_usuario"), rs.getString("password"), rs.getString("usuario"));
 				lista.add(tablaUsuarios);
 			}
 			
-			if (lista.size()> 0) {
-				//System.out.println("Lista llena");
-			}else {
+			if (lista.size()< 0) {
 				System.out.println("No hay ningun registro");
-			}	
+			}
 			con.desconectar();			
 			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
-		
+		System.out.println(lista);
 		return lista;
 		
 	}
 	
-	public boolean update(Modelo mod){
+	public boolean update(Usuario mod){
 		boolean flag =false;
 		String sql = "UPDATE tiendagenerica07.usuarios SET email_usuario = ?, nombre_usuario = ?, password = ?, usuario = ? WHERE cedula_usuario= ?;";			
 		try {

@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="Estilos css/Estilos1.css">
+	<link rel="stylesheet" type="text/css" href="Estilos css/Estilos6.css">
 	<title>Usuarios</title>
 </head>
 <body>
@@ -14,10 +14,7 @@
         <div class="titulo">
             <h1><a href="Tienda.jsp">Tienda Generica</a></h1>
         </div>
-        
-        <div class="logo"> 
-            <img class="logo" src="Estilos css/Imagenes/Imagen1.jpg" alt="Lotipo prueba" />
-        </div>
+
     </header>
 
 	<section class="main">
@@ -54,21 +51,6 @@
         
         </form>
 
-        <section class="datos">
-            <h2>Usuarios</h2>
-            <br />
-            <table class="data">
-                <tr>
-                    <td class="icon"> <img src="https://img.icons8.com/nolan/64/checked.png"/> </td>
-                    <td>Cedula</td>
-                    <td>Usuario</td>
-                    <td>Nombre</td>
-                    <td>Correo</td>
-                    <td>Contraseña</td>
-                </tr>
-</table>
-
-        </section>
     </section>
 
     

@@ -1,4 +1,4 @@
-package controlador;
+package tienda.TiendaGenericaG07.vista;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,29 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.Modelo;
-import packageDAO.UsuarioDAO;
+import tienda.TiendaGenericaG07.modelo.Usuario;
+import tienda.TiendaGenericaG07.modelo.UsuarioDAO;
 
-/**
- * Servlet implementation class UsuarioInicial
- */
+
 @WebServlet("/UsuarioInicial")
 public class UsuarioInicial extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public UsuarioInicial() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 			
@@ -40,24 +30,16 @@ public class UsuarioInicial extends HttpServlet {
 		String usuario = request.getParameter("usuario");
 		
 		UsuarioDAO ud = new UsuarioDAO();
-		Modelo mod = new Modelo(cedula_usuario, email_usuario,nombre_usuario,password,usuario);
+		Usuario mod = new Usuario(cedula_usuario, email_usuario,nombre_usuario,password,usuario);
 		
 		ud.insert(mod);
 		if(mod != null) {
 			response.sendRedirect("principal.jsp");
 		}
 		
-		
-	
-	
-	
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

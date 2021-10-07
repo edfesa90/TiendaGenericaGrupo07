@@ -1,20 +1,21 @@
-package modelo;
+package tienda.TiendaGenericaG07.modelo;
 
-public class Modelo {
+public class Usuario {
 	
 	private int cedula_usuario;
 	private String email_usuario, nombre_usuario, password, usuario;
 	
-	public Modelo () {
-		
-	}
 	
-	public Modelo (int cedula_usuario, String email_usuario, String nombre_usuario, String password, String usuario) {
+	public Usuario (int cedula_usuario, String email_usuario, String nombre_usuario, String password, String usuario) {
 		this.cedula_usuario = cedula_usuario;
 		this.email_usuario = email_usuario;
 		this.nombre_usuario = nombre_usuario;
 		this.password = password;
 		this.usuario = usuario;
+	}
+
+	public Usuario() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getCedula_usuario() {
@@ -56,6 +57,9 @@ public class Modelo {
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
+	
+	
+	
 
 }
 
