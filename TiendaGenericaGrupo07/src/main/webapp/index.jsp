@@ -18,7 +18,7 @@
         <br />
         <h2>Bienvenido a Tienda Generica Grupo 7</h2>
             
-        <form action="./ServletLogin" method="get">
+        <form action="./ServletLogin" method="pos">
             <div>
 
                 <label>Usuario:</label>

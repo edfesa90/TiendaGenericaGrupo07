@@ -42,9 +42,9 @@ public class UsuarioInicial extends HttpServlet {
 		UsuarioDAO ud = new UsuarioDAO();
 		Modelo mod = new Modelo(cedula_usuario, email_usuario,nombre_usuario,password,usuario);
 		
-		ud.insert(mod);
-		if(mod != null) {
-			response.sendRedirect("principal.jsp");
+		if(ud.insert(mod)) {
+			request.setAttribute("mensaje", "Usuario Creado con exito");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 		
 		

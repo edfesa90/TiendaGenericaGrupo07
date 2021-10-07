@@ -50,7 +50,7 @@ public class ServletLogin extends HttpServlet {
 		List<Modelo> lista = ud.selectAll();
 		if(lista.size() > 0) {
 			if(co.autenticacion(nombre, password)) {
-				response.sendRedirect("principal.jsp");
+				response.sendRedirect("usuarios.jsp");
 			}else {
 				request.setAttribute("mensaje", "Error nombre de usuario y/o clave");
 				request.getRequestDispatcher("index.jsp").forward(request, response);

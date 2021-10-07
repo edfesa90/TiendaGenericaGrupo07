@@ -4,6 +4,7 @@ package packageDAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -74,7 +75,26 @@ public class UsuarioDAO {
 		
 	}
 	
-	public boolean update(Modelo mod){
+	public Modelo listarUsuario(String cedula_usuario) {
+		Conexion con = new Conexion();
+		Modelo mod = new Modelo();
+		
+		try {
+			Statement stm = con.getConexion().createStatement();
+			String sql = "SELECT * FROM usuarios U WHERE U.cedula_usuario = '"+cedula_usuario+"'";			
+			ResultSet rs = stm.executeQuery(sql);
+			if(rs.next()) {
+				return (new Modelo(rs.getInt("cedula_usuario"),rs.getString("email_usuario"),rs.getString("nombre_usuario"),rs.getString("password"), rs.getString("usuario")));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public boolean update(int cedula_usuario, Modelo mod){
 		boolean flag =false;
 		String sql = "UPDATE tiendagenerica07.usuarios SET email_usuario = ?, nombre_usuario = ?, password = ?, usuario = ? WHERE cedula_usuario= ?;";			
 		try {
@@ -84,7 +104,7 @@ public class UsuarioDAO {
 			ps.setString(2, mod.getNombre_usuario());
 			ps.setString(3, mod.getPassword());
 			ps.setString(4, mod.getUsuario());
-			ps.setInt(5, mod.getCedula_usuario());
+			ps.setInt(5, cedula_usuario);
 			if(ps.executeUpdate() == 1){
 				flag = true;
 				System.out.println("Usuario Actualizado");
@@ -101,6 +121,8 @@ public class UsuarioDAO {
 		
 		return flag;
 	}
+	
+	
 	
 	public boolean delete(int cedula_usuario){
 		Boolean flag = false;

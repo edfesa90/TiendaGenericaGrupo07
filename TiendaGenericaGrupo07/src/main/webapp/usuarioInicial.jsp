@@ -71,7 +71,18 @@
         </section>
     </section>
 
-    
+    <div>
+    		<p>
+				<%
+					String resultado = (String)request.getAttribute("mensaje");
+					String mensaje = "";
+					if (resultado != null) {
+						mensaje = resultado;
+					}
+				%>
+				<%=mensaje %>
+			</p>
+	</div>		
 
 </body>
 </html>

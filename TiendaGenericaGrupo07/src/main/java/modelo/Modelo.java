@@ -9,6 +9,8 @@ public class Modelo {
 		
 	}
 	
+	
+	
 	public Modelo (int cedula_usuario, String email_usuario, String nombre_usuario, String password, String usuario) {
 		this.cedula_usuario = cedula_usuario;
 		this.email_usuario = email_usuario;
