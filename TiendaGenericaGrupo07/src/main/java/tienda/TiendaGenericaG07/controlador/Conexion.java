@@ -1,4 +1,4 @@
-package packageDAO;
+package tienda.TiendaGenericaG07.controlador;
 
 
 import java.sql.Connection;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class Conexion {
 	
 	private String user = "root";
-	private String password = "Fercho0071";
+	private String password = "admin";
 	private String url = "jdbc:mysql://localhost/tiendagenerica07";
 	private Connection con = null;
 	
@@ -49,3 +49,4 @@ public class Conexion {
 	}
 
 }
+
